@@ -41,3 +41,63 @@ Following steps were used in preparing the data for this project:-
 
 
 
+## Exploratory Data Analysis (EDA), Correlation & Feature Importance: 
+
+Name of the Python Notebook - ***ML_ZoomCamp_Capstone_Project_NYC_MV_Collisions.ipynb***
+
+Below are the important components from the Python Notebook used to load data, perform EDA, train multiple models and evaluate them to select the best model:-
+* **Data Loading** - Firstly, I loaded all the basic libraries used in the project. Then, I imported the data from the .csv file into a Pandas DataFrame and got a snapshot of data (like exploring the unique values in each column of dataset, getting a statistical summary of dataset).
+
+![image](https://user-images.githubusercontent.com/50409210/145678001-3c5a240a-f94e-4a5c-92e3-d9204ccf1ced.png)
+
+This dataset mostly had categorical features (as shown below) and the target variable was PERSON_INJURY' with primarily binary outcomes 'Injured' and 'Killed'. There were 2-3 time-series related features (like CRASH_DATE & CRASH_TIME) as well.  
+
+![image](https://user-images.githubusercontent.com/50409210/145683746-7a173296-60b7-448d-a9b6-f5cf2d9b5a32.png)
+
+
+*  **Data Cleaning and Formatting** - I cleaned the dataset by taking the following steps:-
+   a) Removing Irrelevant data or Columns - like dropping columns VEHICLE_ID, PERSON_ID, UNIQUE_ID, COLLISION_ID
+   b) Imputing Missing rows with mean or mode of values - like imputing missing PERSON_AGE with mean PERSON_AGE
+   c) Changing Data Type for Columns - like changing CRASH_DATE to datetime format or PERSON_AGE to integers
+   d) Replacing Column Values with Specific Values - like replacing 'Does Not Apply' values with 'Unknown'
+   e) Feature Creation from existing feature columns - like creating CRASH_Mnth_Name column from CRASH_DATE column to extract Months from Dates
+
+
+* **Exploratory Data Analysis (EDA)** - After this, I performed EDA using Python libraries like Matplotlib, Pandas and Seaborn to analyze the data and visualize its key components. Using multiple visuals and subplots I tried to answer important questions like ***When do the most traffic accidents occur in NYC during 2021?***
+      
+![image](https://user-images.githubusercontent.com/50409210/145678529-b005475b-e4bf-4c51-83f9-b509865b68ba.png)
+
+As my dataset contained more categorical variables countplot was the primary plot used for most visualizations to understand the relation of different features like EJECTION, PERSON_TYPE etc. with the target variable, PERSON_INJURY. For time-series specific columns like CRASH_Mnth_Name and CRASH_TIME I used barplots to plot the count of Hourly Crashes and Monthly Collisions in 2021. PERSON_AGE column was also analyzed with other features using barplots to study, ***Which age and gender people were involved in most of the NYC collisions?*** or ***Which were most common type of BODILY_INJURY and COMPLAINT faced by those injured after the collision?***
+
+![image](https://user-images.githubusercontent.com/50409210/145678877-e601148b-d9a7-48be-9e81-33fa352a20f9.png)
+
+The following **interesting insights** were drawn from these plots - 
+* The month of June appeared to have the most number of crashes on NYC roads during 2021, while November had the least.
+* Also, most number of collisions in 2021 on NYC roads, seem to have happened around 16:00 or 4:00 pm in the evening.
+* In thw NYC collisions more Females were killed than Males. Also, the proportion of Females injured were quite similar to that of injured Males.
+* The count of collisions for different types of Ejection shows that most of the people were Injured and that too because they could Not Eject. Also, of those injured in collisions most people were Occupants of the motor vehicle themselves or Pedestrians.
+* Most Females killed were in age group 50-60 years while, most Males killed were in age group 40-50 years.
+
+![image](https://user-images.githubusercontent.com/50409210/145679010-49818c6e-ccb2-4dd9-b6ed-6f11bc50a730.png)
+
+* The Pedestrian Location of most of the people injured in NYC collisions in 2021 were not Known (Unknown). Most of the injured people were in Conscious state and in most cases those injured were in the role of Driver at the time of collision.
+* The injured faced mostly Back, Knee-Lower Leg Foot and Neck injuries after collision. Those injured most often complained about Pain or Nausea after meeting with accident.
+ 
+ ![image](https://user-images.githubusercontent.com/50409210/145683308-a596322c-fddb-46b4-a908-fcd15bb49c59.png)
+
+* Mostly the injured persons during collision were at Driver's position in the vehicle. The Lap Belt & Harness were used as Safety Equipment by most injured during the NYC Collisions in 2021. This is ironical as it shows that, people got injured even after using safety equiments. However, the second highest of those injured were those about whom the use of Safety Equipment was Unknown.
+
+
+Hereafter, I used Chi-square test to compute the Correlation between each of the Categorical Features ('BODILY_INJURY','CONTRIBUTING_FACTOR_2', 'EMOTIONAL_STATUS', 'PERSON_SEX' etc.) and the target variable, PERSON_INJURY. As only one feature PERSON_AGE was numerical in our dataset we did not find its correlation with our target separately.
+The following **insights** were drawn from them -
+* Only 'CONTRIBUTING_FACTOR_2' feature had a p-value > 0.5 hence, accepting our Null Hypothesis we found that only this feature is not correlated to our target variable, PERSON_INJURY.
+* For all other features, their respective p-value < 0.5 so, we rejected the Null Hypothesis and declared that they are correlated with our target variable.
+
+
+* **One-hot Encoding of Categorical Data Using DictVectorizer** - As this dataset contained mostly all categorical feature like PERSON_TYPE, COMPLAINT, EMOTIONAL_STATUS etc. these were encoded using DictVectorizer before being used further in training ML algorithms and making predictions. DictVectorizer helped in transforming lists of feature-value mappings to vectors i.e., feature matrix into dictionaries for training and predicting on subsets. When feature values were strings, this transformer would do a binary one-hot coding. 
+
+
+* **Feature Importance Using Mutual Information Score** - To understand the importance of fetaures in dataset Mutual Information metric was computed for different features with the PERSON_INJURY variable. It was found that the knowledge about EMOTIONAL_STATUS will be the most certain while knowledge about CONTRIBUTING_FACTOR_2 will be the least certain in giving information about our target variable PERSON_INJURY. I also computed the important features in the dataset for each of the models Decision tree, Random Forest and XGBoost so as to identify how they differed among models.
+
+* **Computing Difference & Risk Ratio for Features** - Risk Ratios or relative risk, is a metric that measures the risk-taking place in a particular group and comparing the results with the risk-taking place in another group. Here it helped in finding interesting facts about those injured or killed in NYC collisions - like people with Lap Belt & Harness as safety equipment, Occupants of vehicles, those in Driver seat or those who could Not Eject were more likely to get injured. Most people post collision Complained of Pain or Nausea, were Conscious. These facts would further help us find categories or variables which would make predictions about Person's Injury status after a collision using ML algorithms.
+
