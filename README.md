@@ -31,7 +31,7 @@ Following steps were used in preparing the data for this project:-
 * **Correlation** among categorical features was computed to understand their relation with target variable, PERSON_INJURY using Chi-square test.
 * **Feature Importance** techniques were implemented for different ML algorithms to understand which features affected predictions about PERSON_INJURY variable the most.
 * **Binary Classification (Supervised) ML algorithms** both regression-based (like *Logistic Regression*) and tree-based (like *Decision Trees*) were used from **scikit-learn** library to train and make predictions. **Ensemble methods** using bagging like *Random Forest* and boosting like *eXtreme Gradient Boosting or XGBoost* were also used. 
-* Models were compared and their performance evaluated using metrics like - roc_auc_score, f1_score, classification_report etc. 
+Models were compared and their performance evaluated using metrics like - roc_auc_score, f1_score, classification_report etc. 
 * **GridSearchCV** parameter-tuning techniques were used to tune the parameters of each model, improve their performance and select the most optimal parameters.
 * **Cross-Validation** technique like **K-Fold** was also used to split the dataset into ‘k’ number of subsets, then use k-1 subsets to train the model and use the last subset as a validation set to test the model. Then the score of the model on each fold was averaged to evaluate the performance of the model.
 * **CatBoost for Classification** algorithm was used as an additional exercise in this project, to explore more from this dataset. CatBoost or **Categorical Boosting** is an open-source boosting library developed by Yandex. The greatest advantage of CatBoost is that it automatically handles categorical features, using Ordered target statistics. As this dataset mostly has categorical features, making predictions using CatBoost and tuning its parameters acted as a good experiment to learn.
@@ -42,6 +42,7 @@ Following steps were used in preparing the data for this project:-
 
 
 ## Exploratory Data Analysis (EDA), Correlation & Feature Importance: 
+
 
 Name of the Python Notebook - ***ML_ZoomCamp_Capstone_Project_NYC_MV_Collisions.ipynb***
 
@@ -99,5 +100,50 @@ The following **insights** were drawn from them -
 
 * **Feature Importance Using Mutual Information Score** - To understand the importance of fetaures in dataset Mutual Information metric was computed for different features with the PERSON_INJURY variable. It was found that the knowledge about EMOTIONAL_STATUS will be the most certain while knowledge about CONTRIBUTING_FACTOR_2 will be the least certain in giving information about our target variable PERSON_INJURY. I also computed the important features in the dataset for each of the models Decision tree, Random Forest and XGBoost so as to identify how they differed among models.
 
+![image](https://user-images.githubusercontent.com/50409210/145687426-0856a1ca-1c30-44ab-b7d9-440b9eb0e5be.png)
+
 * **Computing Difference & Risk Ratio for Features** - Risk Ratios or relative risk, is a metric that measures the risk-taking place in a particular group and comparing the results with the risk-taking place in another group. Here it helped in finding interesting facts about those injured or killed in NYC collisions - like people with Lap Belt & Harness as safety equipment, Occupants of vehicles, those in Driver seat or those who could Not Eject were more likely to get injured. Most people post collision Complained of Pain or Nausea, were Conscious. These facts would further help us find categories or variables which would make predictions about Person's Injury status after a collision using ML algorithms.
+
+
+
+## Model Selection and Tuning & Evaluation:
+
+
+* **Setting up the validation framework** - Firstly, I split the dataset into training, validation and testing subsets in the ratio of 60:20:20. Then, I defined the feature matrix containing all the factor columns and defined the 'PERSON_INJURY' column as the target variable. I also ensured that the target column was removed from each of the 3 data subsets.
+
+* **Model Selection & Evaluation** - Once the data was split and pre-processed for machine learning algorithms I implemented different models by training them on the full_train set and made predictions on the validation set. The models were then evaluated using Classification metrics like roc_auc_score, confusion_matrix, classification_report etc. to compare their performances. 
+
+Following were the different modelling algorithms I used in this project:
+
+      * Logistic Regression
+      * Decision Trees for Classification
+      * Random Forest for Classification (using Ensemble learning, bagging)
+      * XGBoost for Classification (using Gradient boosting)
+      * Additional exploration - using CatBoost or Categorical Bossting  for Classification 
+      
+For each of the model feature importance was computed to identify which features contributed most to the predictions about collision-related injuries. AUC scores were computed both for the training set & the validation set separately to compare model's performance.
+
+![image](https://user-images.githubusercontent.com/50409210/145686737-8c15f03d-ffbc-48c1-8321-5151036101c2.png)
+
+* **Parameter Tuning of Models** - The parameters for each of the above models were also tuned using **Grid Search Cross Validation (GridSearchCV)** to find the most optimal parameters giving the following as outputs:
+   a) .best_params_ - gives the best combination of tuned hyperparameters (Parameter setting that gave the best results on the hold out data)
+   b) .best_score_ - gives the Mean cross-validated score of the best_estimator 
+   c) .best_estimator_ - estimator which gave highest score (or smallest loss if specified) on the left out data
+   
+Following were the parameters tuned for each model.
+     * Decision Trees for Classification - max_depth , min_samples_leaf and max_features 
+     * Random Forest for Classification - n_estimators, max_depth, min_samples_leaf, max_features
+     * XGBoost for Classification - eta, max_depth, min_child_weight
+     * CatBoost for Classification - learning_rate, max_depth
+ 
+After tuning each model with different parameters the most optimal parameters were selected for the model. This became the Final Model after Hyperparameter Tuning yielding the best AUC score:-
+
+    * Final Decision Tree Model - max_depth = 5, min_sample_leaf = 20 and max_features = 10
+    * Final Random Forest Model - max_depth = 15, min_sample_leaf = 1, and n_estimators = 70 and max_features = 8
+    * Final XGBoost Model -(training for 200 iterations) - max_depth = 4, min_child_weight = 1 and eta = 0.5
+    * Final CatBoost Model - max_depth = 5 and learning_rate = 0.5
+
+* **Selecting the Best Model** - Once final models were built next step was choosing the Best Model among Final Decision tree, Random forest and XGBoost for Classification models. This was done by evaluating each of the final models on the validation set and comparing the AUC scores. By doing so, I found that, ***Random Forest for Classification*** model gave the best AUC score on validation set hence, it was selected as the **Best Model for NYC MV Collision Prediction dataset**. 
+
+Thereafter, I used this best model to make predictions on the testing set (unseen data). Here also it performed fairly close to the validation set scores. Finally, this best model was saved as a Python script and used for further deployment as a web service.
 
