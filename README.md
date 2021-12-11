@@ -147,3 +147,7 @@ After tuning each model with different parameters the most optimal parameters we
 
 Thereafter, I used this best model to make predictions on the testing set (unseen data). Here also it performed fairly close to the validation set scores. Finally, this best model was saved as a Python script and used for further deployment as a web service.
 
+
+
+## Exporting Best Model to Python script:
+
