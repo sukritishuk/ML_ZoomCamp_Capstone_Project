@@ -279,7 +279,9 @@ It resulted in the below output.
 * Telling waitress service where the collision_injury predict app is using command ----> *waitress-serve --listen=127.0.0.1:5000 Capstone_Final_Model_predict:app*
 * In a new cmd terminal, running the script [Capstone_Final_Model_predict_test.py](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/Capstone_Final_Model_predict_test.py) with new sample collided person's details for testing the best model after deployment on new unseen data using command ------> *python Capstone_Final_Model_predict_test.py*
 
-  This would give the collision injury prediction and probability of injury for the new collided person (unseen data) as input.
+  This would give the collision injury prediction and probability of injury for the new collided person (unseen data).
+  
+  ![image](https://user-images.githubusercontent.com/50409210/145720423-a3c83088-0541-43ca-ab94-0e78f494f0a8.png)
 
 * Installing the pipenv library for creating virtual environment using command -----> *pip install pipenv* 
 * Installing other dependent libraries for collision injury prediction model using command -----> *pipenv install numpy scikit-learn==0.24.2 flask pandas requests*
