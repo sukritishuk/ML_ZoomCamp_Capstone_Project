@@ -46,7 +46,7 @@ Models were compared and their performance evaluated using metrics like - roc_au
 
 Name of the Python Notebook - [ML_ZoomCamp_Capstone_Project_NYC_MV_Collisions.ipynb](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/ML_ZoomCamp_Capstone_Project_NYC_MV_Collisions.ipynb)
 
-Below are the important components from the Python Notebook used to load data, perform EDA, train multiple models and evaluate them to select the best model:-
+Below are the important components from this Notebook:-
 * **Data Loading** - Firstly, I loaded all the basic libraries used in the project. Then, I imported the data from the .csv file into a Pandas DataFrame and got a snapshot of data (like exploring the unique values in each column of dataset, getting a statistical summary of dataset).
 
 ![image](https://user-images.githubusercontent.com/50409210/145678001-3c5a240a-f94e-4a5c-92e3-d9204ccf1ced.png)
@@ -72,7 +72,7 @@ As my dataset contained more categorical variables countplot was the primary plo
 
 ![image](https://user-images.githubusercontent.com/50409210/145678877-e601148b-d9a7-48be-9e81-33fa352a20f9.png)
 
-The following **interesting insights** were drawn from these plots - 
+Following **interesting insights** were drawn from these plots - 
 * The month of June appeared to have the most number of crashes on NYC roads during 2021, while November had the least.
 * Also, most number of collisions in 2021 on NYC roads, seem to have happened around 16:00 or 4:00 pm in the evening.
 * In thw NYC collisions more Females were killed than Males. Also, the proportion of Females injured were quite similar to that of injured Males.
@@ -151,11 +151,11 @@ Thereafter, I used this best model to make predictions on the testing set (unsee
 
 ## Exporting Best Model to Python script:
 
-The code for best model i.e., Random Forest for Classification was first saved as a Python Notebook (Capstone_Final_Model_Code.ipynb) then saved as a Python script (Capstone_Final_Model_train.py) for further deployment as a web service.
+The code for best model i.e., Random Forest for Classification was first saved as a Python Notebook [Capstone_Final_Model_Code.ipynb](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/Capstone_Final_Model_Code.ipynb) then saved as a Python script [Capstone_Final_Model_train.py](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/Capstone_Final_Model_train.py) for further deployment as a web service.
 
-Name of Python script used - ***Capstone_Final_Model_train.py***
+Name of Python script used - [Capstone_Final_Model_train.py](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/Capstone_Final_Model_train.py)
 
-This above file would be used for training the final model and further deployment in a server. 
+Above script would be used for training the final model and further deployment in a server. 
 
 **Saving and Loading the Collision Injury Prediction Model** - 
 * It contains all the necessary libraries & Python packages for the model like pandas, numpy, scikit-learn, seaborn etc. It contains the parameters used for training the model. It also has steps about data preparation, data cleaning and formatting like the once we used in Python Notebook for Kaggle dataset. Then it lists the steps to create a validation framework (splitting dataset into 3 subsets, identifying feature matrix and target variables etc.). Thereafter, it performs one-hot encoding using DictVectorizer on data subsets, trains on training or validation subsets and finally lists steps for making predictions. It also performs KFold Cross-Validation on subsets before making predictions.
@@ -172,7 +172,7 @@ With unpacking the model and the DictVectorizer here, I would be able to predict
 
 **Creating a Web service for Model using Flask** - 
 
-Name of Python script used - ***Capstone_Final_Model_predict.py***
+Name of Python script used - [Capstone_Final_Model_predict.py](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/Capstone_Final_Model_predict.py)
 
 * Here I use the **Flask** library in Python to create a web service. The script used here would be implementing the functionality of prediction to our collision_injury web service and would be making it usable in a development environment. To use the model without running the code, I firstly opened and loaded the saved binary file as shown below.
 
@@ -185,7 +185,7 @@ Name of Python script used - ***Capstone_Final_Model_predict.py***
 The details of a new 'sample collided person' are provided in JSON format. These details are sent as a POST request to the web service. The web service sends back a response in JSON format which is converted back into a Python dictionary. Finally, a response message is printed based on the collision_injury decision provided by the model (threshold as 0.55 for collision_injury decision) for the new person.
 
 
-Name of Python script used - ***Capstone_Final_Model_predict_test.py***
+Name of Python script used - [Capstone_Final_Model_predict_test.py](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/Capstone_Final_Model_predict_test.py)
 
 ![image](https://user-images.githubusercontent.com/50409210/145710601-a96c9280-dffe-4be8-9c40-b18fc90f0f1f.png)
 
@@ -195,7 +195,7 @@ As shown above, I made a simple web server that predicts the collision_injury fo
 
 **Creating a Python virtual environment using Pipenv** - 
 
-Names of files used - ***Pipfile*** and ***Pipfile.lock***
+Names of files used - [Pipfile](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/Pipfile) and [Pipfile.lock](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/Pipfile.lock)
 
 Virtual environments can help solve library version conflictions in each machine and manage the dependencies for production environments. I used the **Pipenv** library to create a virtual environment for my Collision Injury Prediction project. 
 
@@ -212,7 +212,7 @@ Pipenv command created two files named Pipfile and Pipfile.lock. Both these file
 
 **Environment Management using Containerization in Docker** - 
 
-Name of file used - ***Dockerfile***
+Name of file used - [Dockerfile](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/Dockerfile)
 
 Docker allows to separate or isolate my project from any system machine and enables running it smoothly on any machine using a container. To use Docker after installing Docker Desktop for Windows I had to perform the following steps:- 
 * Firstly, I had to build a Docker image. I used a Python Docker image from the Docker website[https://hub.docker.com/_/python]. 
