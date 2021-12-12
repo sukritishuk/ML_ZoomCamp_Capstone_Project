@@ -137,9 +137,9 @@ Following were the different modelling algorithms I used in this project:
       * XGBoost for Classification (using Gradient boosting)
       * Additional exploration - using CatBoost or Categorical Bossting  for Classification 
       
-For each of the model feature importance was computed to identify which features contributed most to the predictions about collision-related injuries. AUC scores were computed both for the training set & the validation set separately to compare model's performance.
+For each of the model feature importance was computed to identify which features contributed most to the predictions about collision-related injuries. AUC scores, classification_report and confusion_matrix were computed both for the training set & the validation set separately to compare model's performance.
 
-![image](https://user-images.githubusercontent.com/50409210/145686737-8c15f03d-ffbc-48c1-8321-5151036101c2.png)
+![image](https://user-images.githubusercontent.com/50409210/145719812-4c999fe4-66a8-447c-9eb8-1514b13fa6a2.png)
 
 * **Parameter Tuning of Models** - The parameters for each of the above models were also tuned using **Grid Search Cross Validation (GridSearchCV)** to find the most optimal parameters giving the following as outputs:
    a) .best_params_ - gives the best combination of tuned hyperparameters (Parameter setting that gave the best results on the hold out data)
@@ -153,6 +153,8 @@ Following were the parameters tuned for each model.
      * CatBoost for Classification - learning_rate, max_depth
  
 After tuning each model with different parameters the most optimal parameters were selected for the model. This became the Final Model after Hyperparameter Tuning yielding the best AUC score:-
+
+![image](https://user-images.githubusercontent.com/50409210/145686737-8c15f03d-ffbc-48c1-8321-5151036101c2.png)
 
     * Final Decision Tree Model - max_depth = 5, min_sample_leaf = 20 and max_features = 10
     * Final Random Forest Model - max_depth = 15, min_sample_leaf = 1, and n_estimators = 70 and max_features = 8
