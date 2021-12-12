@@ -64,6 +64,7 @@ This dataset mostly had categorical features (as shown below) and the target var
 ![image](https://user-images.githubusercontent.com/50409210/145719113-64e5b963-da3a-4296-8fa2-ebfa0f9d8c7c.png)
 
 *  **Data Cleaning and Formatting** - I cleaned the dataset by taking the following steps:-
+
    a) Removing Irrelevant data or Columns - like dropping columns VEHICLE_ID, PERSON_ID, UNIQUE_ID, COLLISION_ID
    b) Imputing Missing rows with mean or mode of values - like imputing missing PERSON_AGE with mean PERSON_AGE
    c) Changing Data Type for Columns - like changing CRASH_DATE to datetime format or PERSON_AGE to integers
