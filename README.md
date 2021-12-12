@@ -252,7 +252,7 @@ Below are the steps in this regard:-
 * Installing other dependent libraries for collision injury prediction model using command -----> *pipenv install numpy scikit-learn==0.24.2 flask pandas requests*
 * Installing python 3.8 version to match python version in the docker image and that in Pipfile using command -----> *pipenv install --python 3.8*
   
-  This would update our Pipfile and Pipfile.lock with all requisite library details.
+  This would update our [Pipfile](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/Pipfile) and [Pipfile.lock](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/Pipfile.lock) with all requisite library details.
   
 * Next, getting into the newly created virtual environment using command ----> *pipenv shell*
 * Now running the script with sample collided person details using command ----> *python Capstone_Final_Model_predict_test.py*
@@ -277,7 +277,7 @@ Below are the steps in this regard:-
 
 This gives the collision injury predictions and probabilities from our model for the new sample collided person as input. 
 
-![image](https://user-images.githubusercontent.com/50409210/145711493-77d8f6a8-166c-4f3f-b5ed-6361cef0c56c.png)
+![image](https://user-images.githubusercontent.com/50409210/145714109-c2ce86c4-8593-48a9-85af-10488b5a549d.png)
 
 At last our Collision Injury Prediction service has been deployed locally using a Docker container.
 
