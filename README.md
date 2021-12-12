@@ -191,7 +191,11 @@ Name of Python script used - [Capstone_Final_Model_predict_test.py](https://gith
 
 ![image](https://user-images.githubusercontent.com/50409210/145710601-a96c9280-dffe-4be8-9c40-b18fc90f0f1f.png)
 
-As shown above, I made a simple web server that predicts the collision_injury for every new collided person. When I ran the app I got a warning that this server is not a WGSI server, hence not suitable for production environmnets. To fix this issue for my Windows machine, I used the library **waitress** to run the waitress WSGI server. This fix helped me make a production server that predicts the collision_injury for every new collided person.
+As shown above, I made a simple web server that predicts the collision_injury for every new collided person. When I ran the app I got a warning (see below) that this server is not a WGSI server, hence not suitable for production environmnets. 
+
+![image](https://user-images.githubusercontent.com/50409210/145714366-5fe4a12f-8c50-49c6-a66f-57cb1d00b7aa.png)
+
+To fix this issue for my Windows machine, I used the library **waitress** to run the waitress WSGI server. This fix helped me make a production server that predicts the collision_injury for every new collided person.
 
 
 
@@ -204,6 +208,8 @@ Virtual environments can help solve library version conflictions in each machine
 This was done using the following steps:-
 * Firstly, I installed pipenv library using *pip install pipenv*. 
 * Then, I installed all the necessary libraries for my project in the new virtual environment like numpy, flask, pandas (also specifying exact versions in some cases) using pipenv command like, *pipenv install numpy sklearn==0.24.1 flask*. 
+
+![image](https://user-images.githubusercontent.com/50409210/145714393-93a513bf-caeb-4007-b9b0-2c16f79d7aac.png)
 
 Pipenv command created two files named Pipfile and Pipfile.lock. Both these files contain library-related details, version names and hash files. (In future, if I want to run the project in another machine, I can easily install the libraries using command *pipenv install*, which would look into Pipfile and Pipfile.lock to install all the relevant libraries for my project).
 
@@ -240,6 +246,11 @@ In this section I have summarized the steps for converting my Best model (**Rand
 Below are the steps in this regard:-
 * Changing the directory to the desired one using the command prompt terminal.
 * Running the train script [Capstone_Final_Model_train.py](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/Capstone_Final_Model_train.py) used for training the best model using command ----> *python Capstone_Final_Model_train.py* 
+
+It resulted in the below output.
+
+![image](https://user-images.githubusercontent.com/50409210/145714322-25d5b772-1d32-4948-97d9-f281d309e30f.png)
+
 * Installing flask library using command -----> *pip install flask*
 * Running the predict script [Capstone_Final_Model_predict.py](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/Capstone_Final_Model_predict.py) used for loading the best model using command ----> *python Capstone_Final_Model_predict.py*
 * Installing waitress library (for Windows) using command ------> *pip install waitress*
@@ -291,9 +302,19 @@ Once my Collision Injury prediction service was deloyed locally I also tried to 
 Following steps were undertaken in this regard:-
 
 * Firstly, the CLI  was installed and added as a development dependency only for the project using command ---> *pipenv install awsebcli --dev*
+
+![image](https://user-images.githubusercontent.com/50409210/145714436-95954ee6-0ef0-4f71-a59b-88ba56c35621.png)
+
 * Then, I entered the virtual environment for this project using command -----> *pipenv shell* 
 * Here, I checked the version for Elastic Beanstalk available using CLI using command -----> *eb --version*
 * Next, I initialized the Docker-based **collision-prediction-serving** platform using command -----> *eb init -p docker -r eu-west-1 collision-prediction-serving*
+
+![image](https://user-images.githubusercontent.com/50409210/145714462-c6987843-fc33-4026-aa59-f85a131549c0.png)
+
+Output on AWS Console for Elastic Beanstalk - 
+
+![image](https://user-images.githubusercontent.com/50409210/145714465-0b38d972-ae74-4ecc-b7a9-a59ac577dd69.png)
+
 * Now I first tested my application locally by specifying the port 5000 using command -----> *eb local run --port 5000*. 
 
 It will first build an image and then run the container. 
