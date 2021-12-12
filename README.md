@@ -110,7 +110,11 @@ The following **insights** were drawn from them -
 In addition, to DictVectorizer, LabelEncoder was also used to encode the target variable column , 'PERSON_INJURY' into integers for 'Injured' and 'Killed' values. This would help in training different models and making predictions.The *fit_transform* method was used from LabelEncoder() to encode the data and keep a memory of encodings simultaneously.
 
 
-* **Feature Importance Using Mutual Information Score** - To understand the importance of fetaures in dataset Mutual Information metric was computed for different features with the PERSON_INJURY variable. It was found that the knowledge about EMOTIONAL_STATUS will be the most certain while knowledge about CONTRIBUTING_FACTOR_2 will be the least certain in giving information about our target variable PERSON_INJURY. I also computed the important features in the dataset for each of the models Decision tree, Random Forest and XGBoost so as to identify how they differed among models.
+* **Feature Importance Using Mutual Information Score** - To understand the importance of fetaures in dataset Mutual Information metric was computed for different features with the PERSON_INJURY variable. It was found that the knowledge about EMOTIONAL_STATUS will be the most certain while knowledge about CONTRIBUTING_FACTOR_2 will be the least certain in giving information about our target variable PERSON_INJURY. 
+
+![image](https://user-images.githubusercontent.com/50409210/145719671-c69083bf-143e-4eed-b7c2-6671407b6229.png)
+
+I also computed the important features in the dataset for each of the models Decision tree, Random Forest and XGBoost so as to identify how they differed among models.
 
 ![image](https://user-images.githubusercontent.com/50409210/145687426-0856a1ca-1c30-44ab-b7d9-440b9eb0e5be.png)
 
