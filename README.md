@@ -8,6 +8,8 @@ Motor Vehicle collisions occur when a vehicle collides with another vehicle, ped
 
 This project is based on a publicly available dataset on Kaggle, [NYC Motor Vehicle Collisions to Person](https://www.kaggle.com/kukuroo3/nyc-motor-vehicle-collisions-to-person) which sources its data from [NYC Open Data](https://opendata.cityofnewyork.us/).  I studied this dataset on Kaggle and built a Web service for predicting collision injuries using Supervised Machine learning techniques in Python.
 
+![image](https://user-images.githubusercontent.com/50409210/145683746-7a173296-60b7-448d-a9b6-f5cf2d9b5a32.png)
+
 Below is a summary of steps undertaken in this project - 
 
 * Firstly, I prepared my data by cleaning and formatting the dataset. Then, I used Exploratory Data Analysis techniques in Python to visualize relationships between different features in dataset like BODILY_INJURY, SAFETY_EQUIPMENT, EJECTION, EMOTIONAL_STATUS and their relation with the target variable, PERSON_INJURY. 
@@ -59,8 +61,7 @@ Below are the important components from this Notebook:-
 
 This dataset mostly had categorical features (as shown below) and the target variable was PERSON_INJURY' with primarily binary outcomes 'Injured' and 'Killed'. There were 2-3 time-series related features (like CRASH_DATE & CRASH_TIME) as well.  
 
-![image](https://user-images.githubusercontent.com/50409210/145683746-7a173296-60b7-448d-a9b6-f5cf2d9b5a32.png)
-
+![image](https://user-images.githubusercontent.com/50409210/145719113-64e5b963-da3a-4296-8fa2-ebfa0f9d8c7c.png)
 
 *  **Data Cleaning and Formatting** - I cleaned the dataset by taking the following steps:-
    a) Removing Irrelevant data or Columns - like dropping columns VEHICLE_ID, PERSON_ID, UNIQUE_ID, COLLISION_ID
