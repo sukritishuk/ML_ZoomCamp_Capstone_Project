@@ -81,20 +81,20 @@ As my dataset contained more categorical variables countplot was the primary plo
 ![image](https://user-images.githubusercontent.com/50409210/145678877-e601148b-d9a7-48be-9e81-33fa352a20f9.png)
 
 Following **interesting insights** were drawn from these plots - 
-* The month of June appeared to have the most number of crashes on NYC roads during 2021, while November had the least.
-* Also, most number of collisions in 2021 on NYC roads, seem to have happened around 16:00 or 4:00 pm in the evening.
-* In thw NYC collisions more Females were killed than Males. Also, the proportion of Females injured were quite similar to that of injured Males.
-* The count of collisions for different types of Ejection shows that most of the people were Injured and that too because they could Not Eject. Also, of those injured in collisions most people were Occupants of the motor vehicle themselves or Pedestrians.
+* The month of *June** appeared to have the most number of crashes on NYC roads during 2021, while *November* had the least.
+* Also, most number of collisions in 2021 on NYC roads, seem to have happened around *16:00 hours or 4:00 pm* in the evening.
+* In thw NYC collisions more *Females* were killed than Males. Also, the proportion of Females injured were quite similar to that of injured Males.
+* The count of collisions for different types of Ejection shows that most of the people were Injured and that too because they could *Not Eject*. Also, of those injured in collisions most people were *Occupants* of the motor vehicle themselves or *Pedestrians*.
 * Most Females killed were in age group 50-60 years while, most Males killed were in age group 40-50 years.
 
 ![image](https://user-images.githubusercontent.com/50409210/145679010-49818c6e-ccb2-4dd9-b6ed-6f11bc50a730.png)
 
-* The Pedestrian Location of most of the people injured in NYC collisions in 2021 were not Known (Unknown). Most of the injured people were in Conscious state and in most cases those injured were in the role of Driver at the time of collision.
-* The injured faced mostly Back, Knee-Lower Leg Foot and Neck injuries after collision. Those injured most often complained about Pain or Nausea after meeting with accident.
+* The Pedestrian Location of most of the people injured in NYC collisions in 2021 were *not Known (Unknown)*. Most of the injured people were in *Conscious* state and in most cases those injured were in the role of *Driver* at the time of collision.
+* The injured faced mostly *Back, Knee-Lower Leg Foot and Neck* injuries after collision. Those injured most often complained about *Pain or Nausea* after meeting with accident.
  
  ![image](https://user-images.githubusercontent.com/50409210/145683308-a596322c-fddb-46b4-a908-fcd15bb49c59.png)
 
-* Mostly the injured persons during collision were at Driver's position in the vehicle. The Lap Belt & Harness were used as Safety Equipment by most injured during the NYC Collisions in 2021. This is ironical as it shows that, people got injured even after using safety equiments. However, the second highest of those injured were those about whom the use of Safety Equipment was Unknown.
+* Mostly the injured persons during collision were at *Driver's position in the vehicle*. The *Lap Belt & Harness* were used as Safety Equipment by most injured during the NYC Collisions in 2021. This is ironical as it shows that, people got injured even after using safety equiments. However, the second highest of those injured were those about whom the use of Safety Equipment was Unknown.
 
 
 Hereafter, I used Chi-square test to compute the Correlation between each of the Categorical Features ('BODILY_INJURY','CONTRIBUTING_FACTOR_2', 'EMOTIONAL_STATUS', 'PERSON_SEX' etc.) and the target variable, PERSON_INJURY. As only one feature PERSON_AGE was numerical in our dataset we did not find its correlation with our target separately.
