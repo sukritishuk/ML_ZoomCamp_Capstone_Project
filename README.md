@@ -230,7 +230,7 @@ This Docker image file would have all the dependencies for my project.
 
 
 
-## Instructions for Local Deployment of Collision Injury Prediction Project:
+## Instructions for Local Deployment of Collision Injury Prediction Service:
 
 
 In this section I have summarized the steps for running the Best model  (**Random Forest for Classification**) for my project after exporting it from Notebook to a script and deploying it locally as an app using Docker.
