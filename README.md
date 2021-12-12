@@ -65,11 +65,11 @@ This dataset mostly had categorical features (as shown below) and the target var
 
 *  **Data Cleaning and Formatting** - I cleaned the dataset by taking the following steps:-
 
-   a) Removing Irrelevant data or Columns - like dropping columns VEHICLE_ID, PERSON_ID, UNIQUE_ID, COLLISION_ID
-   b) Imputing Missing rows with mean or mode of values - like imputing missing PERSON_AGE with mean PERSON_AGE
-   c) Changing Data Type for Columns - like changing CRASH_DATE to datetime format or PERSON_AGE to integers
-   d) Replacing Column Values with Specific Values - like replacing 'Does Not Apply' values with 'Unknown'
-   e) Feature Creation from existing feature columns - like creating CRASH_Mnth_Name column from CRASH_DATE column to extract Months from Dates
+       * Removing Irrelevant data or Columns - like dropping columns VEHICLE_ID, PERSON_ID, UNIQUE_ID, COLLISION_ID
+       * Imputing Missing rows with mean or mode of values - like imputing missing PERSON_AGE with mean PERSON_AGE
+       * Changing Data Type for Columns - like changing CRASH_DATE to datetime format or PERSON_AGE to integers
+       * Replacing Column Values with Specific Values - like replacing 'Does Not Apply' values with 'Unknown'
+       * Feature Creation from existing feature columns - like creating CRASH_Mnth_Name column from CRASH_DATE column to extract Months from Dates
 
 
 * **Exploratory Data Analysis (EDA)** - After this, I performed EDA using Python libraries like Matplotlib, Pandas and Seaborn to analyze the data and visualize its key components. Using multiple visuals and subplots I tried to answer important questions like ***When do the most traffic accidents occur in NYC during 2021?***
