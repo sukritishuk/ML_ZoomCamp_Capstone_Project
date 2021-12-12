@@ -233,17 +233,16 @@ This Docker image file would have all the dependencies for my project.
 ## Instructions for Local Deployment of Collision Injury Prediction Service:
 
 
-In this section I have summarized the steps for running the Best model  (**Random Forest for Classification**) for my project after exporting it from Notebook to a script and deploying it locally as an app using Docker.
+In this section I have summarized the steps for converting my Best model (**Random Forest for Classification**) into a script and deploying it locally as an app using Docker.
 
 Below are the steps in this regard:-
 * Changing the directory to the desired one using the command prompt terminal.
-* Running the train script (*Capstone_Final_Model_train.py*) used for training the best model using command ----> *python Capstone_Final_Model_train.py* 
+* Running the train script [Capstone_Final_Model_train.py](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/Capstone_Final_Model_train.py) used for training the best model using command ----> *python Capstone_Final_Model_train.py* 
 * Installing flask library using command -----> *pip install flask*
-* Running the predict script (*Capstone_Final_Model_predict.py*) used for loading the best model using command ----> *python Capstone_Final_Model_predict.py*
+* Running the predict script [Capstone_Final_Model_predict.py](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/Capstone_Final_Model_predict.py) used for loading the best model using command ----> *python Capstone_Final_Model_predict.py*
 * Installing waitress library (for Windows) using command ------> *pip install waitress*
 * Telling waitress service where the collision_injury predict app is using command ----> *waitress-serve --listen=127.0.0.1:5000 Capstone_Final_Model_predict:app*
-* Running the script (in a new cmd terminal) with new sample collided person's details (*Capstone_Final_Model_predict_test.py*) for testing the best model after deployment 
-  using command ------> *python Capstone_Final_Model_predict_test.py*
+* In a new cmd terminal, running the script [Capstone_Final_Model_predict_test.py](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/Capstone_Final_Model_predict_test.py) with new sample collided person's details for testing the best model after deployment on new unseen data using command ------> *python Capstone_Final_Model_predict_test.py*
 
   This would give the collision injury prediction and probability of injury for the new collided person (unseen data) as input.
 
@@ -258,9 +257,9 @@ Below are the steps in this regard:-
 
   This launches pipenv shell first then runs waitress service. It results with injury predictions and probabilities from our model.
 
-* Changing the directory to the desired one using a new cmd terminal. Downloading a desired Docker Python image (*3.8.12-slim*) using command ----> *docker run -it --rm   python:3.8.12-slim*
+* Changing the directory to the desired one using a new cmd terminal. Downloading a desired Docker Python image [3.8.12-slim](https://github.com/docker-library/python/blob/9242c448c7e50d5671e53a393fc2c464683f35dd/3.8/bullseye/slim/Dockerfile) using command ----> *docker run -it --rm   python:3.8.12-slim*
 * Getting into this image using command ----> *docker run -it --rm --entrypoint=bash python:3.8.12-slim*
-* Building the Docker image with tag *capstone_collision-test* (while still within the virtual env shell) using command -----> *docker build -t capstone_collision-test .*
+* Building the Docker image with **tag** *capstone_collision-test* (while still within the virtual env shell) using command -----> *docker build -t capstone_collision-test .*
 * Running the image once built using command ----> *docker run -it --rm --entrypoint=bash capstone_collision-test*
   
 * This brings us inside the app terminal where we get a list of files in app terminal using command -----> *ls*
@@ -269,10 +268,10 @@ Below are the steps in this regard:-
   
   Both the above steps would launch our waitress service giving below output:-
   
-  *INFO: waitress serving on http://0.0.0.0:5000*
+  ![image](https://user-images.githubusercontent.com/50409210/145713912-66af381f-a6bd-4126-bb8a-ba1c4d38a103.png)
   
 * Then in fresh cmd terminal changing the directory to the desired one and getting into the virtual environment created earlier using command ----> *pipenv shell*
-* Finally, running the script with sample collided person details using command ------> *python Capstone_Final_Model_predict_test.py*
+* Finally, running the script with sample collided person's details using command ------> *python Capstone_Final_Model_predict_test.py*
 
 This gives the collision injury predictions and probabilities from our model for the new sample collided person as input. 
 
