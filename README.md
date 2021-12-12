@@ -1,6 +1,6 @@
 ## MLZoomCamp Capstone Project
 
-# **Building & Deploying a Python ML Model for Motor Vehicle Collision Prediction**
+# **Building & Deploying a Python ML Model for Motor Vehicle Collision Injury Prediction**
 
 ## Introduction:
 
@@ -150,4 +150,166 @@ Thereafter, I used this best model to make predictions on the testing set (unsee
 
 
 ## Exporting Best Model to Python script:
+
+The code for best model i.e., Random Forest for Classification was first saved as a Python Notebook (Capstone_Final_Model_Code.ipynb) then saved as a Python script (Capstone_Final_Model_train.py) for further deployment as a web service.
+
+Name of Python script used - ***Capstone_Final_Model_train.py***
+
+This above file would be used for training the final model and further deployment in a server. 
+
+**Saving and Loading the Collision Injury Prediction Model** - 
+* It contains all the necessary libraries & Python packages for the model like pandas, numpy, scikit-learn, seaborn etc. It contains the parameters used for training the model. It also has steps about data preparation, data cleaning and formatting like the once we used in Python Notebook for Kaggle dataset. Then it lists the steps to create a validation framework (splitting dataset into 3 subsets, identifying feature matrix and target variables etc.). Thereafter, it performs one-hot encoding using DictVectorizer on data subsets, trains on training or validation subsets and finally lists steps for making predictions. It also performs KFold Cross-Validation on subsets before making predictions.
+
+* After training, validation and making model ready for predictions it saves the model to a binary file using the **Pickle** library. This enables, to use the model in future without training and evaluating the code. Here, I have used pickle to make a binary file named ***model.bin***. It contains the one-hot encoder (DictVectorizer) and the model details as an array in it.
+
+![image](https://user-images.githubusercontent.com/50409210/139581819-0fe4351e-f48f-4c2c-910d-4945506bf1ba.png)
+
+With unpacking the model and the DictVectorizer here, I would be able to predict the collision injuries for any new input values (sample_collided_person) or unseen data without training a new model, just by re-running the code.
+
+
+
+## Putting the Model into a Web Service and Local Deployment using Docker: 
+
+**Creating a Web service for Model using Flask** - 
+
+Name of Python script used - ***Capstone_Final_Model_predict.py***
+
+* Here I use the **Flask** library in Python to create a web service. The script used here would be implementing the functionality of prediction to our collision_injury web service and would be making it usable in a development environment. To use the model without running the code, I firstly opened and loaded the saved binary file as shown below.
+
+![image](https://user-images.githubusercontent.com/50409210/139581873-4b6058f3-05e6-405d-b2c0-cb0f6f4aa74f.png)
+
+* Finally a function was used for creating the web service. Now, we can run this code to post a new person's data and see the response of our model.
+
+![image](https://user-images.githubusercontent.com/50409210/145710418-275fca66-a4e6-4142-8578-339a85d25126.png)
+
+The details of a new 'sample collided person' are provided in JSON format. These details are sent as a POST request to the web service. The web service sends back a response in JSON format which is converted back into a Python dictionary. Finally, a response message is printed based on the collision_injury decision provided by the model (threshold as 0.55 for collision_injury decision) for the new person.
+
+
+Name of Python script used - ***Capstone_Final_Model_predict_test.py***
+
+![image](https://user-images.githubusercontent.com/50409210/145710601-a96c9280-dffe-4be8-9c40-b18fc90f0f1f.png)
+
+As shown above, I made a simple web server that predicts the collision_injury for every new collided person. When I ran the app I got a warning that this server is not a WGSI server, hence not suitable for production environmnets. To fix this issue for my Windows machine, I used the library **waitress** to run the waitress WSGI server. This fix helped me make a production server that predicts the collision_injury for every new collided person.
+
+
+
+**Creating a Python virtual environment using Pipenv** - 
+
+Names of files used - ***Pipfile*** and ***Pipfile.lock***
+
+Virtual environments can help solve library version conflictions in each machine and manage the dependencies for production environments. I used the **Pipenv** library to create a virtual environment for my Collision Injury Prediction project. 
+
+This was done using the following steps:-
+* Firstly, I installed pipenv library using *pip install pipenv*. Then, I installed all the necessary libraries for my project in the new virtual environment like numpy, flask, pandas (also specifying exact versions in some cases) using pipenv command like, *pipenv install numpy sklearn==0.24.1 flask*. 
+
+Pipenv command created two files named Pipfile and Pipfile.lock. Both these files contain library-related details, version names and hash files. (In future, if I want to run the project in another machine, I can easily install the libraries using command *pipenv install*, which would look into Pipfile and Pipfile.lock to install all the relevant libraries for my project).
+
+* After installing the libraries I can run the project in a virtual environment with *pipenv shell* command. This will go to the virtual environment's shell and run any command using the virtual environment's libraries.
+
+* Next I installed and used the libraries such as waitress (like before).
+
+
+
+**Environment Management using Containerization in Docker** - 
+
+Name of file used - ***Dockerfile***
+
+Docker allows to separate or isolate my project from any system machine and enables running it smoothly on any machine using a container. To use Docker after installing Docker Desktop for Windows I had to perform the following steps:- 
+* Firstly, I had to build a Docker image. I used a Python Docker image from the Docker website[https://hub.docker.com/_/python]. 
+
+This Docker image file would have all the dependencies for my project. 
+
+![image](https://user-images.githubusercontent.com/50409210/145710911-37653ec4-a99e-4a70-afba-380f386b0f17.png)
+
+* After creating the Dockerfile and writing the settings in it (as shown above), I built it and specified the tag name *capstone_collision-test* for this Dockerfile using the command - *docker build -t capstone_collision-test .*
+* After this, I ran the image built and launched waitress service using command - *docker run -it --rm --entrypoint=bash capstone_collision-test*
+* Thereafter, I mapped the port 5000 of the Docker to 5000 port of my machine for successful run of project app using Docker container with the command - *docker run -it --rm -p 5000:5000 capstone_collision-test*
+ 
+ This finally deployed my collision_injury prediction app inside a Docker container.
+
+
+
+## Instructions for Local Deployment of Collision Injury Prediction Project:
+
+
+In this section I have summarized the steps for running the Best model  (**Random Forest for Classification**) for my project after exporting it from Notebook to a script and deploying it locally as an app using Docker.
+
+Below are the steps in this regard:-
+* Changing the directory to the desired one using the command prompt terminal.
+* Running the train script (*Capstone_Final_Model_train.py*) used for training the best model using command ----> *python Capstone_Final_Model_train.py* 
+* Installing flask library using command -----> *pip install flask*
+* Running the predict script (*Capstone_Final_Model_predict.py*) used for loading the best model using command ----> *python Capstone_Final_Model_predict.py*
+* Installing waitress library (for Windows) using command ------> *pip install waitress*
+* Telling waitress service where the collision_injury predict app is using command ----> *waitress-serve --listen=127.0.0.1:5000 Capstone_Final_Model_predict:app*
+* Running the script (in a new cmd terminal) with new sample collided person's details (*Capstone_Final_Model_predict_test.py*) for testing the best model after deployment 
+  using command ------> *python Capstone_Final_Model_predict_test.py*
+
+  This would give the collision injury prediction and probability of injury for the new collided person (unseen data) as input.
+
+* Installing the pipenv library for creating virtual environment using command -----> *pip install pipenv* 
+* Installing other dependent libraries for collision injury prediction model using command -----> *pipenv install numpy scikit-learn==0.24.2 flask pandas requests*
+* Installing python 3.8 version to match python version in the docker image and that in Pipfile using command -----> *pipenv install --python 3.8*
+  
+  This would update our Pipfile and Pipfile.lock with all requisite library details.
+  
+* Next, getting into the newly created virtual environment using command ----> *pipenv shell*
+* Now running the script with sample collided person details using command ----> *python Capstone_Final_Model_predict_test.py*
+
+  This launches pipenv shell first then runs waitress service. It results with injury predictions and probabilities from our model.
+
+* Changing the directory to the desired one using a new cmd terminal. Downloading a desired Docker Python image (*3.8.12-slim*) using command ----> *docker run -it --rm   python:3.8.12-slim*
+* Getting into this image using command ----> *docker run -it --rm --entrypoint=bash python:3.8.12-slim*
+* Building the Docker image with tag *capstone_collision-test* (while still within the virtual env shell) using command -----> *docker build -t capstone_collision-test .*
+* Running the image once built using command ----> *docker run -it --rm --entrypoint=bash capstone_collision-test*
+  
+* This brings us inside the app terminal where we get a list of files in app terminal using command -----> *ls*
+* Then launching the waitress service within app terminal using commnad -----> *waitress-serve --listen=127.0.0.1:5000 Capstone_Final_Model_predict:app*
+* Thereafter, mapping the port in our container (5000) to the port in our host machine (5000) using command ----> *docker run -it --rm -p 5000:5000 capstone_collision-test*
+  
+  Both the above steps would launch our waitress service giving below output:-
+  
+  *INFO: waitress serving on http://0.0.0.0:5000*
+  
+* Then in fresh cmd terminal changing the directory to the desired one and getting into the virtual environment created earlier using command ----> *pipenv shell*
+* Finally, running the script with sample collided person details using command ------> *python Capstone_Final_Model_predict_test.py*
+
+This gives the collision injury predictions and probabilities from our model for the new sample collided person as input. 
+
+![image](https://user-images.githubusercontent.com/50409210/145711493-77d8f6a8-166c-4f3f-b5ed-6361cef0c56c.png)
+
+At last our Collision Injury Prediction service has been deployed locally using a Docker container.
+
+
+
+
+## Cloud Deployment of Collision Injury Prediction Service using AWS Elastic Beanstalk:
+
+Once my Collision Injury prediction service was deloyed locally I also tried to deploy it to the cloud using AWS Elastic Beanstalk. This was done using a special utility Elastic Beanstalk command-line interface (CLI).
+
+Following steps were undertaken in this regard:-
+
+* Firstly, the CLI  was installed and added as a development dependency only for the project using command ---> *pipenv install awsebcli --dev*
+* Then, I entered the virtual environment for this project using command -----> *pipenv shell* 
+* Here, I checked the version for Elastic Beanstalk available using CLI using commmand -----> *eb --version*
+* Next, I initialized the Docker-based collision-prediction-serving platform using command -----> *eb init -p docker -r eu-west-1 collision-prediction-serving*
+* Now I first tested my application locally by specifying the port 5000 using command -----> *eb local run --port 5000*. It will first build an image and then run the container. 
+
+* Then I made predictions about new 'sample collided person' using command as earlier -----> *python Capstone_Final_Model_predict_test.py*
+* Now, I created the collision-prediction-serving environment in AWS which sets up EC2 instance, applying auto-scaling rules using command -----> *eb create collision-prediction-serving-env*
+
+It creates the application and launches the ***collision-prediction-serving environment***. It also generates a public url which can be used to reach the application and make predictions.
+
+![image](https://user-images.githubusercontent.com/50409210/145711772-bc0e137e-b832-436f-9ce3-461958c16eed.png)
+
+* Finally, I could test the cloud service to make predictions about new 'sample collided person' as input using commnad -----> *python Capstone_Final_Model_predict_test.py* 
+
+It resulted in giving us collision injury predictions and probabilities from our model for the new sample collided person (as shown below).
+
+![image](https://user-images.githubusercontent.com/50409210/145711847-ba62007d-2f70-4e35-901a-9d118d4f817d.png)
+
+Thus, our collision prediction service was deployed inside a container on AWS Elastic Beanstalk (as shown below). To reach it, we could use its public URL.
+
+![image](https://user-images.githubusercontent.com/50409210/145711881-5c48c2eb-addc-4715-ad75-fe98b69207cb.png)
+
+
 
