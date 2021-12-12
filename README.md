@@ -286,20 +286,22 @@ At last our Collision Injury Prediction service has been deployed locally using 
 
 ## Cloud Deployment of Collision Injury Prediction Service using AWS Elastic Beanstalk:
 
-Once my Collision Injury prediction service was deloyed locally I also tried to deploy it to the cloud using AWS Elastic Beanstalk. This was done using a special utility Elastic Beanstalk command-line interface (CLI).
+Once my Collision Injury prediction service was deloyed locally I also tried to deploy it to the cloud using AWS Elastic Beanstalk. This was done using a special utility **Elastic Beanstalk command-line interface (CLI)**.
 
 Following steps were undertaken in this regard:-
 
 * Firstly, the CLI  was installed and added as a development dependency only for the project using command ---> *pipenv install awsebcli --dev*
 * Then, I entered the virtual environment for this project using command -----> *pipenv shell* 
-* Here, I checked the version for Elastic Beanstalk available using CLI using commmand -----> *eb --version*
-* Next, I initialized the Docker-based collision-prediction-serving platform using command -----> *eb init -p docker -r eu-west-1 collision-prediction-serving*
-* Now I first tested my application locally by specifying the port 5000 using command -----> *eb local run --port 5000*. It will first build an image and then run the container. 
+* Here, I checked the version for Elastic Beanstalk available using CLI using command -----> *eb --version*
+* Next, I initialized the Docker-based **collision-prediction-serving** platform using command -----> *eb init -p docker -r eu-west-1 collision-prediction-serving*
+* Now I first tested my application locally by specifying the port 5000 using command -----> *eb local run --port 5000*. 
 
-* Then I made predictions about new 'sample collided person' using command as earlier -----> *python Capstone_Final_Model_predict_test.py*
-* Now, I created the collision-prediction-serving environment in AWS which sets up EC2 instance, applying auto-scaling rules using command -----> *eb create collision-prediction-serving-env*
+It will first build an image and then run the container. 
 
-It creates the application and launches the ***collision-prediction-serving environment***. It also generates a public url which can be used to reach the application and make predictions.
+* Then I made predictions about new 'sample collided person' using the command as earlier -----> *python Capstone_Final_Model_predict_test.py*
+* After this, I created the **collision-prediction-serving environment** in AWS which sets up **EC2 instance**, applying auto-scaling rules using command -----> *eb create collision-prediction-serving-env*
+
+It creates the application and launches the collision-prediction-serving environment. It also generates a **public url** which can be used to reach the application and make predictions.
 
 ![image](https://user-images.githubusercontent.com/50409210/145711772-bc0e137e-b832-436f-9ce3-461958c16eed.png)
 
