@@ -100,8 +100,9 @@ Following **interesting insights** were drawn from these plots -
 Hereafter, I used Chi-square test to compute the Correlation between each of the Categorical Features like'BODILY_INJURY','CONTRIBUTING_FACTOR_2', 'EMOTIONAL_STATUS', 'PERSON_SEX' etc. and the target variable, PERSON_INJURY. As only one feature PERSON_AGE was numerical in our dataset we did not find its correlation with our target separately.
 
 The following **insights** were drawn from them -
-      * Only 'CONTRIBUTING_FACTOR_2' feature had a p-value > 0.5 hence, accepting our Null Hypothesis we found that only this feature is not correlated to our target variable,  PERSON_INJURY.
-      * For all other features, their respective p-value < 0.5 so, we rejected the Null Hypothesis and declared that they are correlated with our target variable.
+
+      * Only 'CONTRIBUTING_FACTOR_2' feature had a p-value > 0.5 hence, accepting our Null Hypothesis, only this feature is not correlated to our target variable,  
+      * For all other features, their respective p-value < 0.5 so, we rejected the Null Hypothesis and declared that they are correlated with our target variable, PERSON_INJURY.
 
 
 * **One-hot Encoding of Categorical Data Using DictVectorizer & LabelEncoder** - As this dataset contained mostly categorical features like PERSON_TYPE, COMPLAINT, EMOTIONAL_STATUS etc. these were encoded using DictVectorizer before being used further in training ML algorithms and making predictions. DictVectorizer helped in transforming lists of feature-value mappings to vectors i.e., feature matrix into dictionaries for training and predicting on subsets. When feature values were strings, this transformer would do a binary one-hot coding. 
