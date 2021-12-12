@@ -143,7 +143,9 @@ After tuning each model with different parameters the most optimal parameters we
     * Final XGBoost Model -(training for 200 iterations) - max_depth = 4, min_child_weight = 1 and eta = 0.5
     * Final CatBoost Model - max_depth = 5 and learning_rate = 0.5
 
-* **Selecting the Best Model** - Once final models were built next step was choosing the Best Model among Final Decision tree, Random forest and XGBoost for Classification models. This was done by evaluating each of the final models on the validation set and comparing the AUC scores. By doing so, I found that, ***Random Forest for Classification*** model gave the best AUC score on validation set hence, it was selected as the **Best Model for NYC MV Collision Prediction dataset**. 
+* **Selecting the Best Model** - Once final models were built next step was choosing the Best Model among Final Decision tree, Random forest and XGBoost for Classification models. This was done by evaluating each of the final models on the validation set and comparing the AUC scores. 
+
+By doing so, I found that, ***Random Forest for Classification*** model gave the best AUC score on validation set hence, it was selected as the **Best Model for NYC MV Collision Prediction dataset**. 
 
 Thereafter, I used this best model to make predictions on the testing set (unseen data). Here also it performed fairly close to the validation set scores. Finally, this best model was saved as a Python script and used for further deployment as a web service.
 
