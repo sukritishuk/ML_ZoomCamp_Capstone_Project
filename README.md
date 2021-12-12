@@ -81,7 +81,7 @@ As my dataset contained more categorical variables countplot was the primary plo
 ![image](https://user-images.githubusercontent.com/50409210/145678877-e601148b-d9a7-48be-9e81-33fa352a20f9.png)
 
 Following **interesting insights** were drawn from these plots - 
-* The month of *June** appeared to have the most number of crashes on NYC roads during 2021, while *November* had the least.
+* The month of *June* appeared to have the most number of crashes on NYC roads during 2021, while *November* had the least.
 * Also, most number of collisions in 2021 on NYC roads, seem to have happened around *16:00 hours or 4:00 pm* in the evening.
 * In thw NYC collisions more *Females* were killed than Males. Also, the proportion of Females injured were quite similar to that of injured Males.
 * The count of collisions for different types of Ejection shows that most of the people were Injured and that too because they could *Not Eject*. Also, of those injured in collisions most people were *Occupants* of the motor vehicle themselves or *Pedestrians*.
