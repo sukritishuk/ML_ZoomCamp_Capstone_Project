@@ -216,7 +216,7 @@ Pipenv command created two files named Pipfile and Pipfile.lock. Both these file
 Name of file used - [Dockerfile](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/Dockerfile)
 
 Docker allows to separate or isolate my project from any system machine and enables running it smoothly on any machine using a container. To use Docker after installing Docker Desktop for Windows I had to perform the following steps:- 
-* Firstly, I had to build a Docker image. I used a Python Docker image from the Docker website[https://hub.docker.com/_/python]. 
+* Firstly, I had to build a Docker image. I used a Python Docker image from the [Docker website](https://hub.docker.com/_/python). 
 
 This Docker image file would have all the dependencies for my project. 
 
