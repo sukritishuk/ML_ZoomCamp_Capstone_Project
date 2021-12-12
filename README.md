@@ -145,9 +145,9 @@ For each of the model feature importance was computed to identify which features
 
 The following parameters were computed as outputs from GridSearchCV for each tuned model:-
 
-    * *best_params_* - gives the best combination of tuned hyperparameters (Parameter setting that gave the best results on the hold out data)
-    * *best_score_* - gives the Mean cross-validated score of the best_estimator 
-    * *best_estimator_* - estimator which gave highest score (or smallest loss if specified) on the left out data
+    * best_params_ - gives the best combination of tuned hyperparameters (Parameter setting that gave the best results on the hold out data)
+    * best_score_ - gives the Mean cross-validated score of the best_estimator 
+    * best_estimator_ - estimator which gave highest score (or smallest loss if specified) on the left out data
    
 Following were the parameters tuned for each model.
 
