@@ -142,11 +142,13 @@ For each of the model feature importance was computed to identify which features
 ![image](https://user-images.githubusercontent.com/50409210/145719812-4c999fe4-66a8-447c-9eb8-1514b13fa6a2.png)
 
 * **Parameter Tuning of Models** - The parameters for each of the above models were also tuned using **Grid Search Cross Validation (GridSearchCV)** to find the most optimal parameters giving the following as outputs:
-   a) .best_params_ - gives the best combination of tuned hyperparameters (Parameter setting that gave the best results on the hold out data)
-   b) .best_score_ - gives the Mean cross-validated score of the best_estimator 
-   c) .best_estimator_ - estimator which gave highest score (or smallest loss if specified) on the left out data
+
+    * .best_params_ - gives the best combination of tuned hyperparameters (Parameter setting that gave the best results on the hold out data)
+    * .best_score_ - gives the Mean cross-validated score of the best_estimator 
+    * .best_estimator_ - estimator which gave highest score (or smallest loss if specified) on the left out data
    
 Following were the parameters tuned for each model.
+
      * Decision Trees for Classification - max_depth , min_samples_leaf and max_features 
      * Random Forest for Classification - n_estimators, max_depth, min_samples_leaf, max_features
      * XGBoost for Classification - eta, max_depth, min_child_weight
