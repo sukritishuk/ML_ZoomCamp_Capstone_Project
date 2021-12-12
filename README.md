@@ -222,8 +222,8 @@ This Docker image file would have all the dependencies for my project.
 
 ![image](https://user-images.githubusercontent.com/50409210/145710911-37653ec4-a99e-4a70-afba-380f386b0f17.png)
 
-* After creating the Dockerfile and writing the settings in it (as shown above), I built it and specified the tag name *capstone_collision-test* for this Dockerfile using the command - *docker build -t capstone_collision-test .*
-* After this, I ran the image built and launched waitress service using command - *docker run -it --rm --entrypoint=bash capstone_collision-test*
+* After creating the Dockerfile and writing the settings in it (as shown above), I built it and specified the **tag name** *capstone_collision-test* for this Dockerfile using the command - *docker build -t capstone_collision-test .*
+* Then, I ran the image built and launched waitress service using command - *docker run -it --rm --entrypoint=bash capstone_collision-test*
 * Thereafter, I mapped the port 5000 of the Docker to 5000 port of my machine for successful run of project app using Docker container with the command - *docker run -it --rm -p 5000:5000 capstone_collision-test*
  
  This finally deployed my collision_injury prediction app inside a Docker container.
