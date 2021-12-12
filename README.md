@@ -98,6 +98,7 @@ Following **interesting insights** were drawn from these plots -
 
 
 Hereafter, I used Chi-square test to compute the Correlation between each of the Categorical Features ('BODILY_INJURY','CONTRIBUTING_FACTOR_2', 'EMOTIONAL_STATUS', 'PERSON_SEX' etc.) and the target variable, PERSON_INJURY. As only one feature PERSON_AGE was numerical in our dataset we did not find its correlation with our target separately.
+
 The following **insights** were drawn from them -
 * Only 'CONTRIBUTING_FACTOR_2' feature had a p-value > 0.5 hence, accepting our Null Hypothesis we found that only this feature is not correlated to our target variable, PERSON_INJURY.
 * For all other features, their respective p-value < 0.5 so, we rejected the Null Hypothesis and declared that they are correlated with our target variable.
