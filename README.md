@@ -200,7 +200,8 @@ Names of files used - [Pipfile](https://github.com/sukritishuk/ML_ZoomCamp_Capst
 Virtual environments can help solve library version conflictions in each machine and manage the dependencies for production environments. I used the **Pipenv** library to create a virtual environment for my Collision Injury Prediction project. 
 
 This was done using the following steps:-
-* Firstly, I installed pipenv library using *pip install pipenv*. Then, I installed all the necessary libraries for my project in the new virtual environment like numpy, flask, pandas (also specifying exact versions in some cases) using pipenv command like, *pipenv install numpy sklearn==0.24.1 flask*. 
+* Firstly, I installed pipenv library using *pip install pipenv*. 
+* Then, I installed all the necessary libraries for my project in the new virtual environment like numpy, flask, pandas (also specifying exact versions in some cases) using pipenv command like, *pipenv install numpy sklearn==0.24.1 flask*. 
 
 Pipenv command created two files named Pipfile and Pipfile.lock. Both these files contain library-related details, version names and hash files. (In future, if I want to run the project in another machine, I can easily install the libraries using command *pipenv install*, which would look into Pipfile and Pipfile.lock to install all the relevant libraries for my project).
 
