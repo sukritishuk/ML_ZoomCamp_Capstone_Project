@@ -1,6 +1,6 @@
 ## MLZoomCamp Capstone Project
 
-# **Building & Deploying a Model for Motor Vehicles Collision Injury Prediction**
+# **Building & Deploying a Model for Predicting Collision Injuries from Motor Vehicles**
 
 ## Introduction:
 
