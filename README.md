@@ -1,6 +1,6 @@
 ## MLZoomCamp Capstone Project
 
-# **Building & Deploying a Python ML Model for Motor Vehicle Collision Injury Prediction**
+# **Building & Deploying a Model for Motor Vehicles Collision Injury Prediction**
 
 ## Introduction:
 
