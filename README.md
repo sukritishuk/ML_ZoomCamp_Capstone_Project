@@ -44,7 +44,7 @@ Models were compared and their performance evaluated using metrics like - roc_au
 ## Exploratory Data Analysis (EDA), Correlation & Feature Importance: 
 
 
-Name of the Python Notebook - (ML_ZoomCamp_Capstone_Project_NYC_MV_Collisions.ipynb)[https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/ML_ZoomCamp_Capstone_Project_NYC_MV_Collisions.ipynb]
+Name of the Python Notebook - [ML_ZoomCamp_Capstone_Project_NYC_MV_Collisions.ipynb](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/ML_ZoomCamp_Capstone_Project_NYC_MV_Collisions.ipynb)
 
 Below are the important components from the Python Notebook used to load data, perform EDA, train multiple models and evaluate them to select the best model:-
 * **Data Loading** - Firstly, I loaded all the basic libraries used in the project. Then, I imported the data from the .csv file into a Pandas DataFrame and got a snapshot of data (like exploring the unique values in each column of dataset, getting a statistical summary of dataset).
