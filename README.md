@@ -19,6 +19,7 @@ Below is a summary of steps undertaken in this project -
 * Once the best model for my dataset was selected its code was exported from a Python Notebook into a Python script. Thereafter, this model was put into a web service using Flask. Then, a Python virtual environment was created using Pipenv containing all the necessary dependencies and packages for running the model. 
 * The model was first deployed locally using Docker as a containerized service. Then, this locally deployed model was used to predict the incidence of collision injury for a new 'sample collided person' with unseen data as input. Finally, our deployed model gave as output, details regarding the risk of collision_injury (as True or False) and probability of collision_injury for a 'sample collided person' as inputs to the model. 
 * Lastly, I also tried deploying the collision injury prediction service to the cloud using AWS Elastic Beanstalk. This cloud environment created for the collision injury prediction service was then used to make predictions about a new 'sample collided person' as input to our model.
+* As an experiment, I also created an instant Web Application for my Collision Injury Prediction service using Streamlit python framework. This app gets user inputs for collision and outputs collision injury predictions and probabilities.
 
 
 Now let us go into the details of each step:-
@@ -45,6 +46,7 @@ Models were compared and their performance evaluated using metrics like - roc_au
 * **CatBoost for Classification** algorithm was used as an additional exercise in this project, to explore more from this dataset. CatBoost or **Categorical Boosting** is an open-source boosting library developed by Yandex. The greatest advantage of CatBoost is that it automatically handles categorical features, using Ordered target statistics. As this dataset mostly has categorical features, making predictions using CatBoost and tuning its parameters acted as a good experiment to learn.
 * After evaluating multiple models the Best Model was chosen as **Random Forest for Classification**. Hereafter, this best model was used (as a Python script) in a Web service (using **Flask**) and deployed locally (using **Docker**).
 * Lastly, the Collision Injury Prediction service, was also deployed in the cloud using **AWS Elastic Beanstalk**. For this, Elastic Beanstalk command-line interface (CLI) was added as a development dependency (only for the project). Then an environment for the collision injury prediction service was created in AWS which successfully launched the environment and provided a public url to reach the application. This url was finally used to make collision injury predictions about details of the new 'sample collided person' as input. 
+* As an experiment, I also created an instant Web Application for my Collision Injury Prediction service using **Streamlit**, open-source python framework for building web apps. This app gets user inputs for collision and outputs collision injury predictions and probabilities. The app was deployed usin **Streamlit Cloud** as an app with a public url.
 
 
 
@@ -364,10 +366,9 @@ Thus, our collision prediction service was deployed inside a container on AWS El
 
 ## Building a Web App for Collision Injury Prediction Service using Streamlit:
 
-As an experiment in this project I tried to create an instant Web Application for my Collision Injury Prediction service. This App was named [Collision Injury Prediction Service Web App](https://share.streamlit.io/sukritishuk/ml_zoomcamp_capstone_project/main) and was built using Streamlit, an open-source python framework for creating web apps. Streamlit allowed me to write the app in the same way as my Cloud prediction service code.
+As an experiment in this project I tried to create an instant **Web Application for my Collision Injury Prediction service**. This App was named [Collision Injury Prediction Service Web App](https://share.streamlit.io/sukritishuk/ml_zoomcamp_capstone_project/main) and was built using Streamlit, an open-source python framework for creating web apps. Streamlit allowed me to write the app in the same way as my Cloud prediction service code.
 
 ![image](https://user-images.githubusercontent.com/50409210/145823515-5ed8613f-f9d5-4cf4-9202-e1cd26df3e60.png)
-
 
 Below are the steps taken in creating this app:-
 
