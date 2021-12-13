@@ -362,5 +362,22 @@ Thus, our collision prediction service was deployed inside a container on AWS El
 
 
 
+## Building a Web App for Collision Injury Prediction Service using Streamlit:
+
+As an experiment in this project I tried to create an instant Web Application for my Collision Injury Prediction service. This App was named [Collision Injury Prediction Service](http://localhost:8501/) and was built using Streamlit, an open-source python framework for creating web apps. Streamlit allowed me to write the app in the same way as my Cloud prediction service code.
+
+Below are the steps taken in creating this app:-
+
+* Installing Streamlit using the command - *pip install streamlit*
+* Then, I created a script [streamlit_app.py](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/streamlit_app.py) for specifying the flow of Streamlit app in the form of streamlit commands. This script contained the predictions made for the details inputted by user using Streamlit Web app for Collision injury.
+* After this, the Streamlit script created above was executed using the command - *streamlit run streamlit_app.py*
+Running this script opened a sample app in a new tab in my default browser and a URL was assigned to it in my local host to see the result.
+
+![image](https://user-images.githubusercontent.com/50409210/145820011-9f4657a6-723a-4acb-a548-77c58a47538c.png)
+![image](https://user-images.githubusercontent.com/50409210/145820105-3c1a2ec7-0690-47a2-a3d2-88289a06c55e.png)
+
+To get collision injury predictions from my service, one can directly fill in the collision-related details on this app  and press the **Predict Collision Injury** button to get the predictions. The app will give us collision injury predictions and probabilities from our model for the collision details entered using the web app.
+
+![image](https://user-images.githubusercontent.com/50409210/145819272-58f170ff-a411-42c4-88e3-362777a0ecd6.png)
 
 
