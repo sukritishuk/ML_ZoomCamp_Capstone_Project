@@ -375,13 +375,16 @@ Below are the steps taken in creating this app:-
 * Installing Streamlit using the command - *pip install streamlit*
 * Then, I created a script [streamlit_app.py](https://github.com/sukritishuk/ML_ZoomCamp_Capstone_Project/blob/main/streamlit_app.py) for specifying the flow of Streamlit app in the form of streamlit commands. This script contained the predictions made for the details inputted by user using Streamlit Web app for Collision injury.
 * After this, the Streamlit script created above was executed using the command - *streamlit run streamlit_app.py*
-Running this script opened a sample app in a new tab in my default browser and a URL was assigned to it in my local host (http://localhost:8501/) to see the result.
-* Then I deployed this web app using [Streamlit.io Cloud service](https://docs.streamlit.io/streamlit-cloud/get-started/deploy-an-app)
+* Running this script opened a sample app in a new tab in my default browser and a URL was assigned to it in my local host (http://localhost:8501/) to see the result.
+* Then I deployed this web app using [Streamlit.io Cloud service](https://docs.streamlit.io/streamlit-cloud/get-started/deploy-an-app) to Cloud so that it could be available to public as a service.
 
 ![image](https://user-images.githubusercontent.com/50409210/145820011-9f4657a6-723a-4acb-a548-77c58a47538c.png)
 ![image](https://user-images.githubusercontent.com/50409210/145820105-3c1a2ec7-0690-47a2-a3d2-88289a06c55e.png)
 
-To get collision injury predictions from my service, one can directly fill in the collision-related details on this app  and press the **Predict Collision Injury** button to get the predictions. The app will give us collision injury predictions and probabilities from our model for the collision details entered using the web app.
+* To get collision injury predictions from my service, any user can directly fill in the **Collision Information** on this app  by expanding the plus sign.
+* After this user can press the **Predict Collision Injury** button to get the predictions. 
+
+The app will give the collision injury predictions and probabilities from our model for the collision details entered by the user using the web app.
 
 ![image](https://user-images.githubusercontent.com/50409210/145819272-58f170ff-a411-42c4-88e3-362777a0ecd6.png)
 
