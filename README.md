@@ -366,7 +366,7 @@ Thus, our collision prediction service was deployed inside a container on AWS El
 
 As an experiment in this project I tried to create an instant Web Application for my Collision Injury Prediction service. This App was named [Collision Injury Prediction Service Web App](https://share.streamlit.io/sukritishuk/ml_zoomcamp_capstone_project/main) and was built using Streamlit, an open-source python framework for creating web apps. Streamlit allowed me to write the app in the same way as my Cloud prediction service code.
 
-![image](https://user-images.githubusercontent.com/50409210/145822539-77163f94-ceb6-4b51-8ec3-f4546c6c90c7.png)
+![image](https://user-images.githubusercontent.com/50409210/145823515-5ed8613f-f9d5-4cf4-9202-e1cd26df3e60.png)
 
 
 Below are the steps taken in creating this app:-
