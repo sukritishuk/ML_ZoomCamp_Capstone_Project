@@ -2,7 +2,7 @@
 
 # **Building & Deploying a Model for Predicting Collision Injuries from Motor Vehicles**
 
-## (Training Classification-based Models, Deploying on AWS Cloud (using Flask & Docker) & Building a Web App (using Streamlit) for Collision Injury Prediction Service)
+## Building Classification-based Models, Deploying on AWS Cloud (using Flask & Docker) & Creating a Web App (using Streamlit) for Collision Injury Prediction Service
 DataTalks.Club - [Machine Learning Zoomcamp](https://datatalks.club/courses/2021-winter-ml-zoomcamp.html) **Capstone Project** - an initiative by Alexey Grigorev
 
 Prepared by - [Sukriti Shukla](https://www.linkedin.com/in/sukriti-shukla-3989a819/)
@@ -10,6 +10,7 @@ Prepared by - [Sukriti Shukla](https://www.linkedin.com/in/sukriti-shukla-3989a8
 ![37541](https://user-images.githubusercontent.com/50409210/152536132-96b6b5fa-b428-46c2-a7a8-4120e9d5b9a5.jpg)
 [Image Source](https://www.freepik.com/free-vector/accident-scene-with-car-crash-city_6486317.htm#query=cars%20collision&position=22&from_view=keyword)
 (<a href='https://www.freepik.com/vectors/car'>Car vector created by brgfx - www.freepik.com</a>)
+
 
 
 ## Introduction:
