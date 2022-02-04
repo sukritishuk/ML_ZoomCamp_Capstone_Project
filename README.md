@@ -7,7 +7,8 @@ DataTalks.Club - [Machine Learning Zoomcamp](https://datatalks.club/courses/2021
 
 Prepared by - [Sukriti Shukla](https://www.linkedin.com/in/sukriti-shukla-3989a819/)
 
-![37541](https://user-images.githubusercontent.com/50409210/152536132-96b6b5fa-b428-46c2-a7a8-4120e9d5b9a5.jpg)(https://www.freepik.com/free-vector/accident-scene-with-car-crash-city_6486317.htm#query=cars%20collision&position=22&from_view=keyword)
+![37541](https://user-images.githubusercontent.com/50409210/152536132-96b6b5fa-b428-46c2-a7a8-4120e9d5b9a5.jpg)
+[Image Source](https://www.freepik.com/free-vector/accident-scene-with-car-crash-city_6486317.htm#query=cars%20collision&position=22&from_view=keyword)
 (<a href='https://www.freepik.com/vectors/car'>Car vector created by brgfx - www.freepik.com</a>)
 
 
