@@ -21,6 +21,7 @@ This project is based on a publicly available dataset on Kaggle, [NYC Motor Vehi
 
 ![image](https://user-images.githubusercontent.com/50409210/145683746-7a173296-60b7-448d-a9b6-f5cf2d9b5a32.png)
 
+
 Below is a summary of steps undertaken in this project - 
 
 * Firstly, I prepared my data by cleaning and formatting the dataset. Then, I used Exploratory Data Analysis techniques in Python to visualize relationships between different features in dataset like BODILY_INJURY, SAFETY_EQUIPMENT, EJECTION, EMOTIONAL_STATUS and their relation with the target variable, PERSON_INJURY. 
